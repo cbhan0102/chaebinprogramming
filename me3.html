@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>한채빈 - 웹 프론트엔드 개발자</title>
+	<meta name="description" content="A page background effect where SVG shapes morph and transform on scroll" />
+	<meta name="keywords"
+		content="background, svg, morph, animation, scroll, shape, web development, css, javascript" />
+	<meta name="author" content="Codrops" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="sponsor/pater.css" />
+	<script>
+		document.documentElement.className = 'js';
+		var supportsCssVars = function () {
+			var s = document.createElement('style'),
+				support;
+
+			s.innerHTML = "root: { --tmp-var: bold; }";
+			document.head.appendChild(s);
+			support = !!(window.CSS && window.CSS.supports && window.CSS.supports('font-weight', 'var(--tmp-var)'));
+			s.parentNode.removeChild(s);
+			return support; 
+		}
+		if (!supportsCssVars()) alert('Please view this demo in a modern browser that supports CSS Variables.')
+	</script>
+</head>
+
+<body class="demo-me loading">
+	<svg class="hidden">
+		<symbol id="icon-arrow" viewBox="0 0 24 24">
+			<title>arrow</title>
+			<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 " />
+		</symbol>
+		<symbol id="icon-drop" viewBox="0 0 24 24">
+			<title>drop</title>
+			<path
+				d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z" />
+			<path
+				d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z" />
+		</symbol>
+		<symbol id="shape-demo" viewBox="0 0 200 100">
+			<title>shape demo</title>
+			<path
+				d="M 6.144,74.1 C 20.4,107.4 70.13,94.33 94.22,95.74 121.3,97.41 130.8,101.1 154.7,99.38 178.6,97.72 201.9,78.95 199.4,46.86 197.1,14.96 174.9,4.781 161.4,1.827 147.9,-1.128 119.8,8.284 105.6,8.766 85.34,9.449 81.91,7.628 51.08,2.334 17.26,-3.482 -8.105,40.84 6.144,74.1 Z" />
+		</symbol>
+	</svg>
+	<main>
+		<div class="morph-wrap">
+			<svg class="morph" width="1400" height="770" viewBox="0 0 1400 770">
+				<!-- 바탕 움직이는 모형 -->
+				<!-- <path d="M 262.9,252.2 C 210.1,338.2 212.6,487.6 288.8,553.9 372.2,626.5 511.2,517.8 620.3,536.3 750.6,558.4 860.3,723 987.3,686.5 1089,657.3 1168,534.7 1173,429.2 1178,313.7 1096,189.1 995.1,130.7 852.1,47.07 658.8,78.95 498.1,119.2 410.7,141.1 322.6,154.8 262.9,252.2 Z"/> -->
+			</svg>
+		</div>
+		<div class="content content--fixed">
+			<header class="codrops-header">
+				<div class="codrops-links">
+					<svg class="decoshape" viewBox="0 0 200 100" width="100%" height="100%" preserveAspectRatio="none">
+						<path
+							d="M 10.45,74.41 C 39.4,110.8 72.59,67.27 95.98,68.68 122.3,70.35 131.5,101.4 154.7,99.69 177.9,98.03 200.5,79.26 198.1,47.17 195.9,15.27 174.6,-0.3279 151.8,0.9941 128.6,2.581 126,16.86 107,22.76 88.26,28.67 88.87,12.36 60.37,1.787 31.79,-8.877 -18.61,37.92 10.45,74.41 Z" />
+					</svg>
+					<a class="codrops-icon codrops-icon--prev" href="index.html" title="Home"><svg
+							class="icon icon--arrow">
+							<use xlink:href="#icon-arrow"></use>
+						</svg></a>
+					<a class="codrops-icon codrops-icon--drop" href="index.html" title="home">
+						<svg class="icon icon--drop">
+							<use xlink:href="#icon-drop"></use>
+						</svg>
+					</a>
+				</div>
+				<h1 class="codrops-header__title">HCB's Portfolio</h1>
+			</header>
+			<nav class="demos">
+				<a class="demo" href="index.html"><svg class="decoshape" preserveAspectRatio="none">
+						<use xlink:href="#shape-demo"></use>
+					</svg>HOME</a>
+				<a class="demo demo--current" href="me3.html"><svg class="decoshape">
+						<use xlink:href="#shape-demo"></use>
+					</svg>ABOUT</a>
+				<a class="demo" href="resume.html"><svg class="decoshape">
+						<use xlink:href="#shape-demo"></use>
+					</svg>RESUME</a>
+				<a class="demo " href="portfolio.html"><svg class="decoshape">
+						<use xlink:href="#shape-demo"></use>
+					</svg>PORTFOLIO</a>
+				<a class="demo" target="_blank" href="https://github.com/cbhan0102"><svg class="decoshape">
+						<use xlink:href="#shape-demo"></use>
+					</svg>GITHUB</a>
+				<a class="demo" target="_blank" href="contact.html"><svg class="decoshape">
+						<use xlink:href="#shape-demo"></use>
+					</svg>CONTACK</a>
+			</nav>
+			<a class="pater" href="contact.html">
+				<svg class="pater__deco" width="300" height="240" viewBox="0 0 1000 800">
+					<path
+						d="M27.4,171.8C73,42.9,128.6,1,128.6,1s0,0,0,0c58.5,0,368.3,0.3,873.2,0.8c38.5,211,42.1,373.5,38.9,476.7c-2.5,80.3-10.6,174.9-76.7,247.8c-15.1,16.6-37.4,41.2-72.8,53.9c-92.4,33.1-173-50.8-283.9-99.4c-224.3-98.4-334.9,51.4-472.2-45.6C-6.3,535.2-14.5,290.6,27.4,171.8z" />
+				</svg>
+				<!-- <img class="pater__img" src="https://readme-typing-svg.demolab.com?font=Oleo+Script&size=25&duration=4000&pause=1000&color=70A5FC&width=220&height=35&lines=Hi+there%2C+I'm+chaebin.;Thank+you+for+visiting" alt="Typing SVG" /> -->
+				<h4 class="pater__title">If you want to contact me..</h4>
+				<p class="pater__desc">Please click on me!</p>
+			</a>
+			<div class="deco deco--title">Chebsite - The place where my development stories are gathered</div>
+		</div>
+		<div class="content-wrap">
+			<div class="content content--layout content--layout-1">
+				<img class="content__img" src="img/IMG_2139 2.jpg" alt="Some image" />
+				<h3 class="content__title moveBox">한채빈</h3>
+				<!-- <p class="content__author">Jane Westhall</p> -->
+				<p class="content__desc_my" style="margin-left: 40px;">
+					🏡 : 서울특별시 영등포구 당산동<br>
+					📱 : 010-3908-2049<br>
+					<a href="mailto:cbhan0102@gmail.com">💌 : cbhan0102@gmail.com<br></a>
+					Github<br>
+					Blog<br>
+					<!-- <a href="" download="my_painting.png">다운로드</a> -->
+					<span class="highlight_red">Portfolio(pdf)</span>
+			</div>
+			<div class="box">
+				<p class="my_info">어제보다 더 나은 방법을 탐구하기 위해 끊임없이 고민하는 '시각디자인과 출신' <b>개발자 한채빈입니다.</b></p>
+				<p class="content__info">디자인 전문성을 활용하여 디자이너와 <span class="highlight_purple"> <b>더 효율적인 소통을
+							도모</b></span>하며, 목표 달성을 위한 임팩트를 기준으로 <span class="highlight_purple"> <b>우선순위가 가장 높은
+							일에</b></span>
+					<br>집중합니다.
+					<span class="highlight_purple"> <b>논쟁보다는 테스트를 통해</b></span> 답을 찾고, 실패에서 <span
+						class="highlight_purple"> <b>성공의 비결을 신속히 발견</b></span>하는 것을 선호합니다. <span
+						class="highlight_purple"> <b>사용자 중심의 기능 개발과<br> 최신 개발 동향, 혁신적인 기술</b></span> 에 대한 관심이
+					많습니다.
+				</p>
+			</div>
+
+			<div class="content_box">
+				<h3 class="content_title">이런 팀원이 되고 싶어요</h3>
+				<p class="content__info">정해진 체계 속에서 똑같은 일을 반복하지않고,<span class="highlight_purple">어제보다 오늘 더 잘할 방법을 찾아내는
+						팀원</span>이 되고자 합니다.
+
+				</p>
+			</div>
+
+			<div class="content_box">
+				<h3 class="content_title">Education</h3>
+				<div class="content_minibox">
+					<p class=""><b>한국방송통신대학교</b> <span class="highlight"> | 컴퓨터과학과 재학 중</span><br>
+						<b>Coding BootCamp WECODE</b><span class="highlight"> | 프론트엔드 15기 수료 </span><br>
+						<b>쌍용교육센터</b><span class="highlight"> | Java&Python 기반 응용SW개발자 양성과정 수료 </span><br>
+						<b>백석예술대학교</b><span class="highlight"> | 시각디자인학과 졸업 </span>
+					</p>
+					<p class="highlight">2023.02 - <br>
+						2020.11 - 2021.02<br>
+						2019.02 - 2019.09<br>
+						2015.02 - 2018.02</p>
+				</div>
+			</div>
+
+			<P style="font-size: 30px;">⬇</P>
+		</div>
+		<!-- Related demos -->
+		<section class="content content--related">
+			<p class="content__info"><span class="highlight_carrot">이력서는</span> 프론트엔드 개발과 관련하여 <b>핵심적인 내용만 간결하게 텍스트
+					위주</b>로
+				작성되어있습니다.<br>
+				<span class="highlight_skyblue">포트폴리오는</span>다양한 활동과 프로젝트들이 <b>시각적으로 넓고 깊게 작성</b>되어 있습니다.
+			</p>
+			<a class="content__related-item" href="resume.html">
+				<div class="contents_wrap">
+					<img class="content__related-img" src="img/carrot.jpg">
+					<p class="img_text">Resume</p>
+				</div>
+				<h3 class="content__related-title">이력서를 보시려면 resume을 클릭해주세요.</h3>
+			</a>
+			<a class="content__related-item" href="portfolio.html">
+				<div class="contents_wrap">
+					<img class="content__related-img" src="img/blue.jpg">
+					<p class="img_text">Portfolio</p>
+				</div>
+				<h3 class="content__related-title">포트폴리오를 보시려면 portfolio를 클릭해주세요.</h3>
+			</a>
+		</section>
+
+
+	</main>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/scrollMonitor.js"></script>
+	<script src="js/demo2.js"></script>
+</body>
+
+</html>
